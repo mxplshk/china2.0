@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SinoLine — Поставки из Китая под ключ</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#F7F7F5;
+  --graphite:#1C1C1C;
+  --soft:#6A6A6A;
+  --yellow:#FFD300;
+  --amber:#FFA800;
+  --grad:linear-gradient(135deg,#FFD300 0%,#FFA800 100%);
+  --grad-rev:linear-gradient(135deg,#FFA800 0%,#FFD300 100%);
+  --gray-btn:linear-gradient(135deg,#EBEBEB 0%,#D9D9D9 100%);
+  --border:#E4E4E0;
+  --card:#FFFFFF;
+  --radius:14px;
+  --shadow:0 2px 20px rgba(0,0,0,0.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--white);color:var(--graphite);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* ── UTILITIES ── */
+.container{max-width:1240px;margin:0 auto;padding:0 40px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+.section-title{font-size:clamp(28px,3.5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--graphite)}
+.yellow{color:var(--yellow)}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── HEADER ── */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,247,245,0.94);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  display:flex;align-items:center;gap:20px;
+  height:72px;max-width:1240px;margin:0 auto;padding:0 40px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;color:#1C1C1C;
+}
+.logo-name{font-size:17px;font-weight:800;letter-spacing:-.5px;color:var(--graphite)}
+.logo-name span{color:var(--amber)}
+nav{display:flex;align-items:center;gap:28px;margin-left:auto}
+nav a{font-size:13px;font-weight:600;color:var(--graphite);transition:color .2s;white-space:nowrap}
+nav a:hover{color:var(--amber)}
+.header-socials{display:flex;align-items:center;gap:8px}
+.soc-btn{
+  width:34px;height:34px;border-radius:8px;
+  background:var(--gray-btn);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .22s,transform .18s;
+  border:none;cursor:pointer;
+}
+.soc-btn:hover{background:var(--grad);transform:translateY(-1px)}
+.soc-btn svg{width:17px;height:17px}
+.btn-contact{
+  display:flex;align-items:center;gap:8px;
+  background:var(--grad);
+  padding:10px 22px;border-radius:10px;
+  font-size:13px;font-weight:700;color:var(--graphite);
+  white-space:nowrap;border:none;cursor:pointer;
+  transition:opacity .2s,transform .18s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(255,168,0,.28);
+}
+.btn-contact:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 22px rgba(255,168,0,.38)}
+
+/* ── HERO ── */
+.hero{
+  padding:100px 0 80px;
+  position:relative;overflow:hidden;
+  background:var(--white);
+}
+.hero::before{
+  content:'';position:absolute;top:-120px;right:-80px;
+  width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,211,0,.18) 0%,rgba(255,211,0,0) 70%);
+  pointer-events:none;
+}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,211,0,.14);border:1px solid rgba(255,168,0,.3);
+  border-radius:100px;padding:6px 14px;
+  font-size:12px;font-weight:700;color:#A07000;
+  margin-bottom:24px;
+}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--amber);display:block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero h1{font-size:clamp(30px,4vw,54px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;margin-bottom:22px}
+.hero-sub{font-size:16px;color:var(--soft);line-height:1.7;margin-bottom:32px;max-width:520px}
+.hero-bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+.hero-bullet{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600}
+.bullet-dot{
+  width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,211,0,.2);
+  display:flex;align-items:center;justify-content:center;
+}
+.bullet-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--amber);display:block}
+.hero-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--grad);padding:16px 32px;border-radius:12px;
+  font-size:15px;font-weight:700;color:var(--graphite);
+  box-shadow:0 6px 24px rgba(255,168,0,.35);
+  transition:transform .2s,box-shadow .2s,opacity .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,168,0,.45)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:16px 24px;border-radius:12px;border:1.5px solid var(--border);
+  font-size:15px;font-weight:600;color:var(--graphite);
+  transition:border-color .2s,background .2s;
+}
+.btn-ghost:hover{border-color:var(--amber);background:rgba(255,211,0,.06)}
+.hero-card{
+  background:var(--card);border-radius:20px;
+  padding:36px;box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:16px;overflow:hidden;margin-top:8px}
+.stat-item{
+  background:var(--white);padding:20px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.stat-num{font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--graphite)}
+.stat-num span{color:var(--amber)}
+.stat-label{font-size:12px;color:var(--soft);font-weight:500}
+.hero-card-title{font-size:18px;font-weight:800;margin-bottom:20px;letter-spacing:-.3px}
+
+/* ── SECTION ── */
+section{padding:80px 0}
+section:nth-child(even){background:var(--card)}
+
+/* ── FOR WHOM ── */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+section:nth-child(even) .card{background:var(--white)}
+section:nth-child(odd) .card{background:var(--card)}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.1);border-color:rgba(255,168,0,.4)}
+.card-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(255,211,0,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;
+}
+.card h3{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
+.card p{font-size:14px;color:var(--soft);line-height:1.65}
+
+/* ── PAIN → SOLUTION ── */
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.pain-col h3{font-size:20px;font-weight:700;margin-bottom:20px;letter-spacing:-.3px}
+.pain-list{display:flex;flex-direction:column;gap:12px}
+.pain-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px;border-radius:10px;
+  background:rgba(28,28,28,.04);
+  font-size:14px;color:var(--graphite);font-weight:500;
+}
+.pain-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.solution-col{
+  background:var(--grad);border-radius:18px;padding:32px;
+  display:flex;flex-direction:column;justify-content:center;gap:16px;
+}
+.solution-col h3{font-size:20px;font-weight:800;color:var(--graphite);margin-bottom:4px}
+.solution-col p{font-size:15px;color:rgba(28,28,28,.75);line-height:1.65}
+.solution-points{display:flex;flex-direction:column;gap:10px}
+.sol-point{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--graphite)}
+.sol-point::before{content:'✓';width:22px;height:22px;border-radius:50%;background:rgba(28,28,28,.15);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+
+/* ── PROCESS ── */
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;position:relative}
+.process-steps::before{
+  content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--border) 15%,var(--border) 85%,transparent);
+}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative;padding:0 8px}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--card);border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:800;color:var(--graphite);
+  position:relative;z-index:1;
+  transition:background .25s,border-color .25s;
+}
+.step:hover .step-num{background:var(--grad);border-color:transparent}
+.step h4{font-size:13px;font-weight:700;letter-spacing:-.2px}
+.step p{font-size:12px;color:var(--soft);line-height:1.5}
+.process-note{text-align:center;margin-top:32px;font-size:14px;color:var(--soft);font-weight:500}
+.process-note strong{color:var(--graphite)}
+
+/* ── CASES ── */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.case-card{
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);
+}
+.case-top{
+  background:var(--grad);padding:24px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.case-metric{font-size:26px;font-weight:800;color:var(--graphite);letter-spacing:-1px}
+.case-label{font-size:13px;color:rgba(28,28,28,.65);font-weight:600}
+.case-bottom{background:var(--card);padding:20px;font-size:14px;color:var(--soft);line-height:1.6}
+.case-arrow{font-size:13px;font-weight:700;color:var(--graphite);margin-bottom:6px}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.why-item{
+  text-align:center;padding:24px 16px;
+  border-radius:var(--radius);border:1px solid var(--border);
+  background:var(--card);
+  transition:transform .25s,box-shadow .25s;
+}
+.why-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.why-icon{font-size:28px;margin-bottom:12px}
+.why-item h4{font-size:13px;font-weight:700;line-height:1.4}
+
+/* ── TRANSPARENT ── */
+.transparent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:18px;overflow:hidden;margin-top:40px}
+.tr-item{
+  background:var(--card);padding:28px 24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.tr-num{font-size:36px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.tr-item h4{font-size:16px;font-weight:700;letter-spacing:-.3px}
+.tr-item p{font-size:13px;color:var(--soft);line-height:1.6}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:40px;border-radius:14px;overflow:hidden}
+.faq-item{background:var(--card)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 24px;cursor:pointer;
+  font-size:16px;font-weight:700;letter-spacing:-.2px;
+  gap:16px;
+}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;background:var(--gray-btn);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;font-weight:300;color:var(--graphite);
+  transition:background .2s,transform .2s;
+}
+.faq-item.open .faq-icon{background:var(--grad);transform:rotate(45deg)}
+.faq-a{
+  display:none;padding:0 24px 20px;
+  font-size:14px;color:var(--soft);line-height:1.7;
+}
+.faq-item.open .faq-a{display:block}
+
+/* ── CTA FINAL ── */
+.cta-final{
+  background:var(--graphite);padding:80px 0;
+  text-align:center;
+}
+.cta-final .section-title{color:#fff}
+.cta-final .tag{color:rgba(255,255,255,.5)}
+.cta-final p{color:rgba(255,255,255,.6);font-size:16px;margin:14px 0 36px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-form{
+  display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;
+}
+.cta-input{
+  flex:1;min-width:220px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  border-radius:12px;padding:14px 18px;
+  font-size:14px;color:#fff;font-family:'Manrope',sans-serif;
+  outline:none;transition:border-color .2s;
+}
+.cta-input::placeholder{color:rgba(255,255,255,.4)}
+.cta-input:focus{border-color:var(--yellow)}
+.btn-cta{
+  background:var(--grad);padding:14px 28px;border-radius:12px;
+  font-size:14px;font-weight:700;color:var(--graphite);
+  border:none;cursor:pointer;white-space:nowrap;
+  box-shadow:0 4px 18px rgba(255,168,0,.4);
+  transition:transform .2s,box-shadow .2s;font-family:'Manrope',sans-serif;
+}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,168,0,.5)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--graphite);border-top:1px solid rgba(255,255,255,.08);
+  padding:32px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-logo .logo-icon{width:30px;height:30px;font-size:13px}
+.footer-logo .logo-name{color:#fff;font-size:14px}
+footer p{font-size:12px;color:rgba(255,255,255,.35)}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .container{padding:0 24px}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .cards-grid,.services-grid,.cases-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:repeat(3,1fr)}
+  .transparent-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:20px}
+  .process-steps::before{display:none}
+  .pain-grid{grid-template-columns:1fr}
+  nav{display:none}
+  .header-socials{display:none}
+}
+@media(max-width:600px){
+  section{padding:56px 0}
+  .cards-grid,.services-grid,.cases-grid,.why-grid{grid-template-columns:1fr}
+  .transparent-grid{grid-template-columns:1fr}
+  .hero{padding:60px 0 52px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">SL</div>
+      <div class="logo-name">Sino<span>Line</span></div>
+    </a>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#process">Как работаем</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">О нас</a>
+    </nav>
+    <div class="header-socials">
+      <!-- Telegram -->
+      <button class="soc-btn" title="Telegram">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M21.8 3.4L2.2 10.9c-1.3.5-1.3 1.3-.2 1.6l5 1.6 1.9 5.8c.2.7.3.9.8.9.4 0 .6-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.6.2 1.8-.8L22.8 4.7c.3-1.3-.5-1.9-1-.3z" fill="currentColor"/>
+        </svg>
+      </button>
+      <!-- WhatsApp -->
+      <button class="soc-btn" title="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1-.4-1.9-.9-2.7-1.6-.7-.7-1.3-1.5-1.7-2.4-.2-.3 0-.5.1-.7.1-.1.3-.4.4-.5.1-.2.2-.3.2-.5 0-.2 0-.4-.1-.5l-.8-2c-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C6.5 7 6 7.9 6 9c0 1.1.8 2.2 1 2.5.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4-.1.4-.2 1.3-.5 1.5-1 .2-.5.2-.9.1-1z" fill="currentColor"/>
+          <path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.4 5.2L2 22l4.9-1.3C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.2.8.8-3.1-.2-.3C3.5 15.1 3 13.6 3 12c0-5 4-9 9-9s9 4 9 9-4 9.3-9 9.3z" fill="currentColor"/>
+        </svg>
+      </button>
+      <!-- VK -->
+      <button class="soc-btn" title="VKontakte">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M13.1 17H11.6c-2.8 0-4.3-1.9-4.4-5.3H8.8c.1 2.8 1.2 4 2.2 4.2V11.7h1.4v2.1c1-.1 2-1.1 2.4-2.1h1.4c-.3 1.4-1.3 2.5-2.1 2.9.9.4 2 1.4 2.4 3H14.9c-.4-1.2-1.3-2.2-1.8-2.6z" fill="currentColor"/>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <a href="#contact" class="btn-contact">Связаться с менеджером</a>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span></span>
+          Официальные поставки · Белая логистика
+        </div>
+        <h1>Поставки товаров из Китая <span class="grad-text">под ключ</span></h1>
+        <p class="hero-sub">Найдём поставщика, проверим качество, выкупим, доставим и оформим документы. Вы занимаетесь продажами — мы берём на себя Китай.</p>
+        <div class="hero-bullets">
+          <div class="hero-bullet"><div class="bullet-dot"></div>Работаем напрямую с фабриками</div>
+          <div class="hero-bullet"><div class="bullet-dot"></div>Проверка товара перед отправкой</div>
+          <div class="hero-bullet"><div class="bullet-dot"></div>Белая и карго-доставка</div>
+          <div class="hero-bullet"><div class="bullet-dot"></div>Фиксируем сроки и стоимость в договоре</div>
+        </div>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Рассчитать стоимость поставки →</a>
+          <a href="#process" class="btn-ghost">Как это работает</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Результаты клиентов</div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">200<span>+</span></div><div class="stat-label">Успешных поставок</div></div>
+          <div class="stat-item"><div class="stat-num">7<span>лет</span></div><div class="stat-label">На рынке Китая</div></div>
+          <div class="stat-item"><div class="stat-num">32<span>%</span></div><div class="stat-label">Среднее снижение себестоимости</div></div>
+          <div class="stat-item"><div class="stat-num">18<span>дн</span></div><div class="stat-label">Средний срок доставки</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOR WHOM ═══ -->
+<section id="forwho">
+  <div class="container">
+    <div class="tag">Для кого</div>
+    <h2 class="section-title">Кому подойдёт</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>Предпринимателям и селлерам</h3>
+        <p>Закупаете товары для перепродажи — снизим себестоимость и уберём брак. Работаем с маркетплейсами: Wildberries, Ozon, СДЭК.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏷️</div>
+        <h3>Брендам</h3>
+        <p>Производство под вашим брендом (OEM/ODM), контроль качества и упаковки. Выведем вас на уровень собственного продукта.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Новичкам</h3>
+        <p>Поможем выбрать товар, просчитаем экономику, доведём до первой прибыли. Полное сопровождение с нуля до продажи.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PAIN → SOLUTION ═══ -->
+<section id="pain">
+  <div class="container">
+    <div class="tag">Проблема и решение</div>
+    <h2 class="section-title">Почему работать с&nbsp;Китаем сложно без опыта</h2>
+    <div class="pain-grid">
+      <div class="pain-col">
+        <h3>Типичные боли</h3>
+        <div class="pain-list">
+          <div class="pain-item"><div class="pain-icon">😰</div>Непонятно, как выбрать надёжного поставщика</div>
+          <div class="pain-item"><div class="pain-icon">📦</div>Риск получить брак или не тот товар</div>
+          <div class="pain-item"><div class="pain-icon">💸</div>Сложности с оплатой и логистикой</div>
+          <div class="pain-item"><div class="pain-icon">🔗</div>Потеря денег на посредниках</div>
+          <div class="pain-item"><div class="pain-icon">⏳</div>Непредсказуемые сроки и задержки</div>
+        </div>
+      </div>
+      <div class="solution-col">
+        <h3>Наше решение</h3>
+        <p>Мы берём весь процесс на себя — от поиска до доставки на ваш склад.</p>
+        <div class="solution-points">
+          <div class="sol-point">Поиск проверенных фабрик под вашу задачу</div>
+          <div class="sol-point">Видео и фото инспекция товара перед отправкой</div>
+          <div class="sol-point">Безопасные платежи в Китай</div>
+          <div class="sol-point">Выбор оптимального маршрута</div>
+          <div class="sol-point">Фиксированная цена в договоре</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="container">
+    <div class="tag">Что мы делаем</div>
+    <h2 class="section-title">Полный цикл поставки</h2>
+    <div class="services-grid">
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Поиск поставщиков</h3>
+        <p>Находим фабрики под ваш бюджет и задачу. Проверяем репутацию, лицензии и производственные мощности.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📷</div>
+        <h3>Проверка товара</h3>
+        <p>Фото и видео отчёты, инспекция на складе в Китае перед отправкой. Вы видите товар до оплаты.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💳</div>
+        <h3>Выкуп товара</h3>
+        <p>Работаем с оплатами в Китай безопасно и прозрачно. Подтверждаем каждый этап документально.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚢</div>
+        <h3>Логистика</h3>
+        <p>Авиа, авто, ЖД, море — подбираем оптимальный вариант по соотношению скорость / стоимость.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Таможня</h3>
+        <p>Полное таможенное оформление и сертификация без головной боли. Белая документация.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Брендинг</h3>
+        <p>Кастомизация упаковки, нанесение логотипа, разработка дизайна под ваш бренд на фабрике.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process">
+  <div class="container">
+    <div class="tag">Как мы работаем</div>
+    <h2 class="section-title">Простой процесс — понятный результат</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Заявка</h4>
+        <p>Оставляете заявку, рассказываете о задаче</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Расчёт</h4>
+        <p>Делаем расчёт и предлагаем варианты</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Поставщик</h4>
+        <p>Согласовываем поставщика и условия договора</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Инспекция</h4>
+        <p>Проверяем товар перед отправкой</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h4>Доставка</h4>
+        <p>Доставляем прямо к вам на склад</p>
+      </div>
+    </div>
+    <p class="process-note"><strong>Вы контролируете каждый этап</strong> — личный менеджер на связи 24/7</p>
+  </div>
+</section>
+
+<!-- ═══ CASES ═══ -->
+<section id="cases">
+  <div class="container">
+    <div class="tag">Результаты</div>
+    <h2 class="section-title">Результаты наших клиентов</h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-top">
+          <div class="case-metric">−32%</div>
+          <div class="case-label">Снижение себестоимости товара</div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-arrow">→ Прибыль выросла в 2 раза</div>
+          Нашли прямую фабрику, убрали двух посредников и оптимизировали упаковку под маркетплейс.
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-top">
+          <div class="case-metric">45→18 дн</div>
+          <div class="case-label">Ускорение поставок</div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-arrow">→ Нашли поставщика вместо 3 посредников</div>
+          Перестроили логистическую цепочку: прямые авиарейсы + быстрое таможенное оформление.
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-top">
+          <div class="case-metric">3 нед</div>
+          <div class="case-label">Первая партия распродана</div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-arrow">→ Запустили бренд с нуля</div>
+          Помогли выбрать товарную нишу, разработать упаковку и выйти на Wildberries с первым заказом.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY US ═══ -->
+<section id="why">
+  <div class="container">
+    <div class="tag">Преимущества</div>
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">🇨🇳</div>
+        <h4>Работаем напрямую с Китаем</h4>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📄</div>
+        <h4>Чёткие сроки и официальный договор</h4>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📹</div>
+        <h4>Фото и видео контроль каждой партии</h4>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🛒</div>
+        <h4>Опыт в нишах e-commerce</h4>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📊</div>
+        <h4>Помогаем считать экономику юнита</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRANSPARENT ═══ -->
+<section id="transparent">
+  <div class="container">
+    <div class="tag">Прозрачность</div>
+    <h2 class="section-title">Вы заранее знаете всё</h2>
+    <div class="transparent-grid">
+      <div class="tr-item">
+        <div class="tr-num">01</div>
+        <h4>Итоговую стоимость</h4>
+        <p>Никаких скрытых платежей. Цена зафиксирована в договоре ещё до старта.</p>
+      </div>
+      <div class="tr-item">
+        <div class="tr-num">02</div>
+        <h4>Сроки доставки</h4>
+        <p>Конкретные даты каждого этапа — от выкупа до получения у вас на складе.</p>
+      </div>
+      <div class="tr-item">
+        <div class="tr-num">03</div>
+        <h4>Расходы на каждом этапе</h4>
+        <p>Детальная смета: производство, логистика, таможня — всё раздельно.</p>
+      </div>
+      <div class="tr-item">
+        <div class="tr-num">04</div>
+        <h4>Риски и как мы их закрываем</h4>
+        <p>Инспекция, страхование груза, резервные поставщики — всё предусмотрено.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="container">
+    <div class="tag">FAQ</div>
+    <h2 class="section-title">Частые вопросы</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          Какой минимальный заказ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Зависит от товара и типа производства. Для некоторых категорий начинаем от 100–200 единиц. Подберём вариант даже для старта — рассчитаем экономику и предложим оптимальный объём.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Сколько занимает доставка?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">От 7 до 45 дней в зависимости от способа. Авиа — 7–12 дней, автодоставка — 18–25 дней, морской контейнер — 35–45 дней. Подберём оптимальный маршрут под ваши сроки и бюджет.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Можно ли поставить товар под своим брендом?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Да, делаем OEM/ODM поставки. Разработаем дизайн упаковки, нанесём ваш логотип, организуем производство под бренд. Всё по договору с фиксированными сроками.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Как вы проверяете товар?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Проводим инспекцию на складе в Китае до отправки: фотосъёмка каждой позиции, видеоотчёт, проверка соответствия образцу. Вы получаете полный отчёт и принимаете решение об отправке.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Как происходит оплата фабрике?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Работаем через официальные каналы — безналичный платёж с договором. Используем проверенные схемы валютных переводов. Полная финансовая прозрачность и документальное подтверждение каждой транзакции.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-final" id="contact">
+  <div class="container">
+    <div class="tag">Начать</div>
+    <h2 class="section-title">Начните работать с Китаем без ошибок и потерь</h2>
+    <p>Оставьте заявку — рассчитаем стоимость и покажем, как увеличить маржу</p>
+    <div class="cta-form">
+      <input class="cta-input" type="text" placeholder="Ваше имя"/>
+      <input class="cta-input" type="tel" placeholder="+7 (___) ___-__-__"/>
+      <button class="btn-cta">Получить расчёт →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">
+    <div class="logo-icon" style="background:var(--grad);color:#1C1C1C;width:30px;height:30px;font-size:12px;font-weight:800;border-radius:7px;display:flex;align-items:center;justify-content:center">SL</div>
+    <div class="logo-name" style="color:#fff;font-size:14px;font-weight:800">Sino<span style="color:var(--amber)">Line</span></div>
+  </div>
+  <p>© 2025 SinoLine. Поставки товаров из Китая под ключ.</p>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+// Smooth scroll for anchors
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+</script>
+</body>
+</html>
